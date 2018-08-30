@@ -29,16 +29,14 @@ Widget _checkboxDtPhone(dynamic pageState) {
   return CheckboxListTile(
     title: Text(calc.Costs.dtPhone.name),
     value: calc.Costs.dtPhone.used,
-    onChanged: (bool value) {
-      pageState.setState(() {
-        if (calc.CostsFunc.existAnyOperationSystem()) {
-          calc.Costs.dtPhone.used = value;
-        } else {
-          print('RA: Need to choose one or two operation system');
-          //TODO: Show SnackBar
-        }
-      });
-    },
+    onChanged: calc.CostsFunc.existAnyOperationSystem()
+        ? (bool value) {
+            pageState.setState(() {
+              calc.CostsFunc.useDeviceTypePhone(value);
+//              calc.Costs.dtPhone.used = value;
+            });
+          }
+        : null,
     controlAffinity: ListTileControlAffinity.leading,
     secondary: Icon(Icons.phone_iphone),
   );
@@ -48,16 +46,14 @@ Widget _checkboxDtTablet(dynamic pageState) {
   return CheckboxListTile(
     title: Text(calc.Costs.dtTablet.name),
     value: calc.Costs.dtTablet.used,
-    onChanged: (bool value) {
-      pageState.setState(() {
-        if (calc.CostsFunc.existAnyOperationSystem()) {
-          calc.Costs.dtTablet.used = value;
-        } else {
-          print('RA: Need to choose one or two operation system');
-          //TODO: Show SnackBar
-        }
-      });
-    },
+    onChanged: calc.CostsFunc.existAnyOperationSystem()
+        ? (bool value) {
+            pageState.setState(() {
+              calc.CostsFunc.useDeviceTypeTablet(value);
+//              calc.Costs.dtTablet.used = value;
+            });
+          }
+        : null,
     controlAffinity: ListTileControlAffinity.leading,
     secondary: Icon(Icons.tablet_mac),
   );
