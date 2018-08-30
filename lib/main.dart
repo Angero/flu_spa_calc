@@ -1,42 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'calc/calc_main.dart';
 
-void main() => runApp(new MyApp());
+
+void main() {
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
+    runApp(new MyApp());
+  });
+}
+
 
 class MyApp extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'My App',
-      home: new Home(),
+      debugShowCheckedModeBanner: false,
+      title: 'SPA Calculator',
+      theme: _themeData,
+      routes: <String, WidgetBuilder>{
+//        '/home': (BuildContext context) => new First(),
+//        '/second': (BuildContext context) => new Second(),
+//        '/third': (BuildContext context) => new Third(),
+      },
+      home: new CalcMainPage(),
     );
   }
 }
 
-class Home extends StatefulWidget {
-  @override
-  _HomeState createState() => new _HomeState();
-}
 
-class _HomeState extends State<Home> {
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('Home'),
-        actions: <Widget>[
-          new IconButton(icon: new Icon(Icons.info_outline), onPressed: null),
-        ],
-      ),
-      body: new Container(
-        padding: const EdgeInsets.all(16.0),
-        child: new Center(
-          child: new Column(
-            children: <Widget>[
-
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
+final ThemeData _themeData = new ThemeData(
+  brightness: Brightness.dark,
+);
