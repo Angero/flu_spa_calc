@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'calc/calc_main.dart';
+import 'calc/calc_tabs.dart';
 
 
 void main() {
@@ -9,7 +9,6 @@ void main() {
     runApp(new MyApp());
   });
 }
-
 
 class MyApp extends StatelessWidget {
 
@@ -20,11 +19,9 @@ class MyApp extends StatelessWidget {
       title: 'SPA Calculator',
       theme: _themeData,
       routes: <String, WidgetBuilder>{
-//        '/home': (BuildContext context) => new First(),
-//        '/second': (BuildContext context) => new Second(),
-//        '/third': (BuildContext context) => new Third(),
+        '/home': (BuildContext context) => new CalcTabsPage(),
       },
-      home: new CalcMainPage(),
+      home: new CalcTabsPage(),
     );
   }
 }
