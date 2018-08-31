@@ -1,12 +1,15 @@
 import 'package:flu_estimate/calculation/calculation.dart' as calc;
 import 'package:flutter/material.dart';
 
+import 'calc_aa.dart';
+import 'calc_ds.dart';
 import 'calc_dt.dart';
 import 'calc_os.dart';
 import 'calc_pr.dart';
 import 'calc_sc.dart';
 import 'calc_so.dart';
-import 'calc_ds.dart';
+import 'calc_sv.dart';
+import 'calc_fn.dart';
 
 class CalcTabsPage extends StatefulWidget {
   @override
@@ -24,7 +27,7 @@ class _CalcTabsPageState extends State<CalcTabsPage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-        length: 6,
+        length: 9,
         child: Scaffold(
           appBar: AppBar(
             title: Text(
@@ -47,7 +50,18 @@ class _CalcTabsPageState extends State<CalcTabsPage> {
               Tab(
                 text: '4',
               ),
-              Tab(text: '5',),
+              Tab(
+                text: '5',
+              ),
+              Tab(
+                text: '6',
+              ),
+              Tab(
+                text: '7',
+              ),
+              Tab(
+                text: '8',
+              ),
             ]),
           ),
           body: TabBarView(children: [
@@ -57,6 +71,9 @@ class _CalcTabsPageState extends State<CalcTabsPage> {
             tabSc(),
             tabPr(this),
             tabDs(this),
+            tabAa(this),
+            tabSv(this),
+            tabFn(this),
           ]),
         ));
   }

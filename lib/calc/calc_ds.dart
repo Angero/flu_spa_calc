@@ -26,8 +26,6 @@ Widget tabDs(dynamic pageState) {
   );
 }
 
-//int _selected = calc.CostsFunc.getCurrentDesignIndex();
-
 Widget _radioDsNative(dynamic pageState) {
   return RadioListTile(
     value: 0,
