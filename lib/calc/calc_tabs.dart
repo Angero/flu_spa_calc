@@ -3,6 +3,7 @@ import 'package:flu_estimate/calculation/calculation.dart' as calc;
 import 'calc_os.dart';
 import 'calc_dt.dart';
 import 'calc_so.dart';
+import 'calc_sc.dart';
 
 
 class CalcTabsPage extends StatefulWidget {
@@ -22,7 +23,7 @@ class _CalcTabsPageState extends State<CalcTabsPage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-        length: 3,
+        length: 5,
         child: Scaffold(
           appBar: AppBar(
             title: Text('Calc SPA'),
@@ -30,12 +31,15 @@ class _CalcTabsPageState extends State<CalcTabsPage> {
               Tab(text: '1',),
               Tab(text: '2',),
               Tab(text: '3',),
+              Tab(text: '4',),
+              Tab(text: '5',),
             ]),
           ),
           body: TabBarView(children: [
             tabOs(this),
             tabDt(this),
             tabSo(this),
+            tabSc(),
           ]),
         ));
   }
