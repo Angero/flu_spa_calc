@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import 'calc/calc_tabs.dart';
 
-
 void main() {
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
-      .then((_) {
+  SystemChrome
+      .setPreferredOrientations([DeviceOrientation.portraitUp]).then((_) {
     runApp(new MyApp());
   });
 }
 
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
@@ -26,7 +25,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
 final ThemeData _themeData = new ThemeData(
   brightness: Brightness.dark,
+  accentColor: Colors.amber,
+  toggleableActiveColor: Colors.amber,
 );

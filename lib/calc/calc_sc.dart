@@ -18,7 +18,7 @@ Widget tabSc() {
         _textFieldScreenCount(),
         Expanded(
           child: Container(),
-          flex: 1,
+          flex: 2,
         ),
       ],
     ),

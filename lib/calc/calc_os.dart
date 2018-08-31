@@ -29,7 +29,7 @@ Widget _checkboxOsApple(dynamic pageState) {
       });
     },
     controlAffinity: ListTileControlAffinity.leading,
-    secondary: Icon(Icons.brightness_1),
+    secondary: Icon(Icons.fastfood),
   );
 }
 
