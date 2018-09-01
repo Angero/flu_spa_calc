@@ -15,13 +15,74 @@ Widget tabSc(dynamic pageState) {
           child: Container(),
           flex: 1,
         ),
-        _textFieldScreenCount(),
+        _integerPickerScreenCount(pageState),
+//        _textFieldScreenCount(),
         Expanded(
           child: Container(),
           flex: 2,
         ),
       ],
     ),
+  );
+}
+
+Widget _integerPickerScreenCount(dynamic pageState) {
+  int _minValue = 0;
+  int _maxValue = 50;
+  return Row(
+    children: <Widget>[
+      Expanded(
+        child: Container(),
+        flex: 1,
+      ),
+      MaterialButton(
+        child: new Text(
+          '-',
+          style: TextStyle(fontSize: 20.0),
+        ),
+        minWidth: 50.0,
+        height: 50.0,
+        onPressed: calc.CostsFunc.existAnyOperationSystem()
+            ? () {
+                pageState.setState(() {
+                  if (calc.Costs.scNum.count > _minValue) {
+                    calc.Costs.scNum.count--;
+                  }
+                });
+              }
+            : null,
+      ),
+      Text(
+        calc.Costs.scNum.count.toString(),
+        style: TextStyle(
+          color: calc.CostsFunc.existAnyOperationSystem()
+              ? Colors.amber
+              : Colors.grey,
+          fontSize: 26.0,
+        ),
+      ),
+      MaterialButton(
+        child: new Text(
+          '+',
+          style: TextStyle(fontSize: 20.0),
+        ),
+        minWidth: 50.0,
+        height: 50.0,
+        onPressed: calc.CostsFunc.existAnyOperationSystem()
+            ? () {
+                pageState.setState(() {
+                  if (calc.Costs.scNum.count < _maxValue) {
+                    calc.Costs.scNum.count++;
+                  }
+                });
+              }
+            : null,
+      ),
+      Expanded(
+        child: Container(),
+        flex: 1,
+      ),
+    ],
   );
 }
 
