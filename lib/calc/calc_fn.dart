@@ -1,5 +1,6 @@
 import 'package:flu_estimate/calculation/calculation.dart' as calc;
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 Widget tabFn(dynamic pageState) {
   return Padding(
@@ -162,6 +163,6 @@ Widget _checkboxFnLocale(dynamic pageState) {
     }
         : null,
     controlAffinity: ListTileControlAffinity.leading,
-    secondary: Icon(Icons.g_translate),
+    secondary: Icon(FontAwesomeIcons.globe),
   );
 }

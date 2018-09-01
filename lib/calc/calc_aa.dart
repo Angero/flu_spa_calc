@@ -1,5 +1,6 @@
 import 'package:flu_estimate/calculation/calculation.dart' as calc;
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 Widget tabAa(dynamic pageState) {
   return Padding(
@@ -72,7 +73,7 @@ Widget _checkboxAaGoogle(dynamic pageState) {
     }
         : null,
     controlAffinity: ListTileControlAffinity.leading,
-    secondary: Icon(Icons.people),
+    secondary: Icon(FontAwesomeIcons.google),
   );
 }
 
@@ -88,7 +89,7 @@ Widget _checkboxAaFacebook(dynamic pageState) {
     }
         : null,
     controlAffinity: ListTileControlAffinity.leading,
-    secondary: Icon(Icons.people),
+    secondary: Icon(FontAwesomeIcons.facebook),
   );
 }
 
@@ -104,6 +105,6 @@ Widget _checkboxAaInstagram(dynamic pageState) {
     }
         : null,
     controlAffinity: ListTileControlAffinity.leading,
-    secondary: Icon(Icons.people),
+    secondary: Icon(FontAwesomeIcons.instagram),
   );
 }

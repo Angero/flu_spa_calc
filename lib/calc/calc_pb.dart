@@ -1,5 +1,6 @@
 import 'package:flu_estimate/calculation/calculation.dart' as calc;
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 Widget tabPb(dynamic pageState) {
   return Padding(
@@ -37,7 +38,7 @@ Widget _checkboxPbApple(dynamic pageState) {
           }
         : null,
     controlAffinity: ListTileControlAffinity.leading,
-    secondary: Icon(Icons.fastfood),
+    secondary: Icon(FontAwesomeIcons.appStoreIos),
   );
 }
 
@@ -53,6 +54,6 @@ Widget _checkboxPbGoogle(dynamic pageState) {
           }
         : null,
     controlAffinity: ListTileControlAffinity.leading,
-    secondary: Icon(Icons.android),
+    secondary: Icon(FontAwesomeIcons.googlePlay),
   );
 }

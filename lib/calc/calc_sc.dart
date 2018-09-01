@@ -2,7 +2,7 @@ import 'package:flu_estimate/calculation/calculation.dart' as calc;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-Widget tabSc() {
+Widget tabSc(dynamic pageState) {
   return Padding(
     padding: const EdgeInsets.all(16.0),
     child: Column(

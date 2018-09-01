@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flu_estimate/calculation/calculation.dart' as calc;
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 Widget tabOs(dynamic pageState) {
   return  Padding(
@@ -29,7 +30,7 @@ Widget _checkboxOsApple(dynamic pageState) {
       });
     },
     controlAffinity: ListTileControlAffinity.leading,
-    secondary: Icon(Icons.fastfood),
+    secondary: Icon(FontAwesomeIcons.apple),
   );
 }
 
