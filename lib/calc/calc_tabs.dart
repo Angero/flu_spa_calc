@@ -10,6 +10,7 @@ import 'calc_sc.dart';
 import 'calc_so.dart';
 import 'calc_sv.dart';
 import 'calc_fn.dart';
+import 'calc_pb.dart';
 
 class CalcTabsPage extends StatefulWidget {
   @override
@@ -27,7 +28,7 @@ class _CalcTabsPageState extends State<CalcTabsPage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-        length: 9,
+        length: 10,
         child: Scaffold(
           appBar: AppBar(
             title: Text(
@@ -62,6 +63,9 @@ class _CalcTabsPageState extends State<CalcTabsPage> {
               Tab(
                 text: '8',
               ),
+              Tab(
+                text: '9',
+              ),
             ]),
           ),
           body: TabBarView(children: [
@@ -74,6 +78,7 @@ class _CalcTabsPageState extends State<CalcTabsPage> {
             tabAa(this),
             tabSv(this),
             tabFn(this),
+            tabPb(this),
           ]),
         ));
   }
