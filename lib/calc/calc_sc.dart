@@ -1,6 +1,5 @@
 import 'package:flu_estimate/calculation/calculation.dart' as calc;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 Widget tabSc(dynamic pageState) {
   return Padding(
@@ -83,30 +82,5 @@ Widget _integerPickerScreenCount(dynamic pageState) {
         flex: 1,
       ),
     ],
-  );
-}
-
-Widget _textFieldScreenCount() {
-  final TextEditingController controller = new TextEditingController();
-  controller.text = calc.Costs.scNum.count.toString();
-  return TextField(
-    maxLength: 2,
-    inputFormatters: [
-      WhitelistingTextInputFormatter(RegExp('[0-9]')),
-    ],
-    keyboardType: TextInputType.number,
-    enabled: calc.CostsFunc.existAnyOperationSystem(),
-    controller: controller,
-    decoration: new InputDecoration(
-        labelText: 'Количество экранов',
-        hintText: 'Введите примерное количество экранов'),
-    onChanged: (String value) {
-      if (calc.CostsFunc.existAnyOperationSystem()) {
-        calc.Costs.scNum.count = int.parse(value);
-      } else {
-        calc.Costs.scNum.count = 0;
-      }
-      controller.text = calc.Costs.scNum.count.toString();
-    },
   );
 }
