@@ -1,5 +1,6 @@
 import 'package:flu_estimate/calculation/calculation.dart' as calc;
 import 'package:flutter/material.dart';
+import 'package:share/share.dart';
 
 dynamic _pageState;
 String _currentResult = '';
@@ -14,6 +15,8 @@ Widget tabRs(dynamic pageState) {
         _materialButtonRun(),
         SizedBox(height: 40.0,),
         _textResult(),
+        SizedBox(height: 80.0,),
+        _materialButtonSendEmail(),
         Expanded(child: Container(), flex: 1,),
       ],
     ),
@@ -46,3 +49,17 @@ Widget _textResult() {
   );
 }
 
+Widget _materialButtonSendEmail() {
+  return MaterialButton(
+    child: new Text('Отправить расчет'.toUpperCase()),
+    minWidth: 120.0,
+    height: 50.0,
+    color: Colors.amber,
+    textColor: Colors.black,
+    onPressed: () {
+      _pageState.setState(() {
+        Share.share(calc.CostsPost.write());
+      });
+    },
+  );
+}
