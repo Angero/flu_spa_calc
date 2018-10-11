@@ -1,22 +1,43 @@
-import 'package:flutter/material.dart';
 import 'package:flu_estimate/calculation/calculation.dart' as calc;
+import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 Widget tabOs(dynamic pageState) {
-  return  Padding(
+  return Padding(
     padding: const EdgeInsets.all(16.0),
-    child: Column(
+    child: Stack(
+      alignment: AlignmentDirectional.topStart,
       children: <Widget>[
-        SizedBox(height: 20.0,),
-        Text('Операционная система'.toUpperCase()),
-        Expanded(child: Container(), flex: 1,),
-        _checkboxOsApple(pageState),
-        _checkboxOsAndroid(pageState),
-        Expanded(child: Container(), flex: 2,),
+        Center(
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: 10.0,
+              ),
+              Text(
+                'Операционная система'.toUpperCase(),
+                style: TextStyle(color: Colors.amber),
+              ),
+            ],
+          ),
+        ),
+        Column(
+          children: <Widget>[
+            Expanded(
+              child: Container(),
+              flex: 1,
+            ),
+            _checkboxOsApple(pageState),
+            _checkboxOsAndroid(pageState),
+            Expanded(
+              child: Container(),
+              flex: 1,
+            ),
+          ],
+        ),
       ],
     ),
   );
-
 }
 
 Widget _checkboxOsApple(dynamic pageState) {
@@ -48,6 +69,3 @@ Widget _checkboxOsAndroid(dynamic pageState) {
     secondary: Icon(Icons.android),
   );
 }
-
-
-

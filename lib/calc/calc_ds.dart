@@ -3,23 +3,31 @@ import 'package:flutter/material.dart';
 
 Widget tabDs(dynamic pageState) {
   return Padding(
-    padding: const EdgeInsets.all(16.0),
-    child: Column(
+    padding: const EdgeInsets.only(top: 16.0, bottom: 16.0, left: 0.0, right: 0.0),
+    child: ListView(
       children: <Widget>[
+        SizedBox(
+          height: 10.0,
+        ),
+        Text(
+          'Дизайн приложения'.toUpperCase(),
+          style: TextStyle(color: Colors.amber),
+          textAlign: TextAlign.center,
+        ),
         SizedBox(
           height: 20.0,
         ),
-        Text('Дизайн приложения'.toUpperCase()),
-        Expanded(
-          child: Container(),
-          flex: 1,
-        ),
         _radioDsNative(pageState),
+        SizedBox(
+          height: 10.0,
+        ),
         _radioDsFirm(pageState),
+        SizedBox(
+          height: 10.0,
+        ),
         _radioDsCustom(pageState),
-        Expanded(
-          child: Container(),
-          flex: 2,
+        SizedBox(
+          height: 40.0,
         ),
       ],
     ),

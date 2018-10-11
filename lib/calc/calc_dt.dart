@@ -4,21 +4,35 @@ import 'package:flutter/material.dart';
 Widget tabDt(dynamic pageState) {
   return Padding(
     padding: const EdgeInsets.all(16.0),
-    child: Column(
+    child: Stack(
+      alignment: AlignmentDirectional.topStart,
       children: <Widget>[
-        SizedBox(
-          height: 20.0,
+        Center(
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: 10.0,
+              ),
+              Text(
+                'Тип устройства'.toUpperCase(),
+                style: TextStyle(color: Colors.amber),
+              ),
+            ],
+          ),
         ),
-        Text('Тип устройства'.toUpperCase()),
-        Expanded(
-          child: Container(),
-          flex: 1,
-        ),
-        _checkboxDtPhone(pageState),
-        _checkboxDtTablet(pageState),
-        Expanded(
-          child: Container(),
-          flex: 2,
+        Column(
+          children: <Widget>[
+            Expanded(
+              child: Container(),
+              flex: 1,
+            ),
+            _checkboxDtPhone(pageState),
+            _checkboxDtTablet(pageState),
+            Expanded(
+              child: Container(),
+              flex: 1,
+            ),
+          ],
         ),
       ],
     ),

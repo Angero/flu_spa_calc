@@ -3,23 +3,43 @@ import 'package:flutter/material.dart';
 
 Widget tabSv(dynamic pageState) {
   return Padding(
-    padding: const EdgeInsets.all(16.0),
-    child: Column(
+    padding: const EdgeInsets.only(top: 16.0, bottom: 16.0, left: 0.0, right: 0.0),
+    child: Stack(
+      alignment: AlignmentDirectional.topStart,
       children: <Widget>[
-        SizedBox(
-          height: 20.0,
+        Center(
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: 10.0,
+              ),
+              Text(
+                'Сервер'.toUpperCase(),
+                style: TextStyle(color: Colors.amber),
+              ),
+            ],
+          ),
         ),
-        Text('Сервер'.toUpperCase()),
-        Expanded(
-          child: Container(),
-          flex: 1,
-        ),
-        _radioSvNoNeed(pageState),
-        _radioSvExist(pageState),
-        _radioSvCreate(pageState),
-        Expanded(
-          child: Container(),
-          flex: 2,
+        Column(
+          children: <Widget>[
+            Expanded(
+              child: Container(),
+              flex: 1,
+            ),
+            _radioSvNoNeed(pageState),
+            SizedBox(
+              height: 10.0,
+            ),
+            _radioSvExist(pageState),
+            SizedBox(
+              height: 10.0,
+            ),
+            _radioSvCreate(pageState),
+            Expanded(
+              child: Container(),
+              flex: 1,
+            ),
+          ],
         ),
       ],
     ),
@@ -32,11 +52,11 @@ Widget _radioSvNoNeed(dynamic pageState) {
     groupValue: calc.Costs.svValue,
     onChanged: calc.CostsFunc.existAnyOperationSystem()
         ? (int value) {
-      pageState.setState(() {
-        calc.Server server = calc.Server.values[value];
-        calc.CostsFunc.selectServer(server);
-      });
-    }
+            pageState.setState(() {
+              calc.Server server = calc.Server.values[value];
+              calc.CostsFunc.selectServer(server);
+            });
+          }
         : null,
     secondary: Icon(Icons.cloud_off),
     title: Text(calc.Costs.svNoNeed.name),
@@ -50,11 +70,11 @@ Widget _radioSvExist(dynamic pageState) {
     groupValue: calc.Costs.svValue,
     onChanged: calc.CostsFunc.existAnyOperationSystem()
         ? (int value) {
-      pageState.setState(() {
-        calc.Server server = calc.Server.values[value];
-        calc.CostsFunc.selectServer(server);
-      });
-    }
+            pageState.setState(() {
+              calc.Server server = calc.Server.values[value];
+              calc.CostsFunc.selectServer(server);
+            });
+          }
         : null,
     secondary: Icon(Icons.cloud_done),
     title: Text(calc.Costs.svExist.name),
@@ -68,11 +88,11 @@ Widget _radioSvCreate(dynamic pageState) {
     groupValue: calc.Costs.svValue,
     onChanged: calc.CostsFunc.existAnyOperationSystem()
         ? (int value) {
-      pageState.setState(() {
-        calc.Server server = calc.Server.values[value];
-        calc.CostsFunc.selectServer(server);
-      });
-    }
+            pageState.setState(() {
+              calc.Server server = calc.Server.values[value];
+              calc.CostsFunc.selectServer(server);
+            });
+          }
         : null,
     secondary: Icon(Icons.cloud_queue),
     title: Text(calc.Costs.svCreate.name),

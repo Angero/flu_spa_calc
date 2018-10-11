@@ -3,17 +3,18 @@ import 'package:flutter/material.dart';
 
 Widget tabPr(dynamic pageState) {
   return Padding(
-    padding: const EdgeInsets.all(16.0),
+    padding:
+        const EdgeInsets.only(top: 16.0, bottom: 16.0, left: 0.0, right: 0.0),
     child: ListView(
       children: <Widget>[
         SizedBox(
-          height: 20.0,
+          height: 10.0,
         ),
         Text(
           'Стадии проекта'.toUpperCase(),
+          style: TextStyle(color: Colors.amber),
           textAlign: TextAlign.center,
         ),
-//        Expanded(child: Container(), flex: 1,),
         SizedBox(
           height: 20.0,
         ),
@@ -30,7 +31,9 @@ Widget tabPr(dynamic pageState) {
           height: 10.0,
         ),
         _checkboxPrTask(pageState),
-//        Expanded(child: Container(), flex: 2,),
+        SizedBox(
+          height: 40.0,
+        ),
       ],
     ),
   );

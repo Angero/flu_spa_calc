@@ -4,14 +4,15 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 Widget tabFn(dynamic pageState) {
   return Padding(
-    padding: const EdgeInsets.all(16.0),
+    padding: const EdgeInsets.only(top: 16.0, bottom: 16.0, left: 0.0, right: 0.0),
     child: ListView(
       children: <Widget>[
         SizedBox(
-          height: 20.0,
+          height: 10.0,
         ),
         Text(
           'Функции'.toUpperCase(),
+          style: TextStyle(color: Colors.amber),
           textAlign: TextAlign.center,
         ),
         SizedBox(

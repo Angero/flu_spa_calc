@@ -4,21 +4,34 @@ import 'package:flutter/material.dart';
 Widget tabSc(dynamic pageState) {
   return Padding(
     padding: const EdgeInsets.all(16.0),
-    child: Column(
+    child: Stack(
+      alignment: AlignmentDirectional.topStart,
       children: <Widget>[
-        SizedBox(
-          height: 20.0,
+        Center(
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: 10.0,
+              ),
+              Text(
+                'Количество экранов'.toUpperCase(),
+                style: TextStyle(color: Colors.amber),
+              ),
+            ],
+          ),
         ),
-        Text('Количество экранов'.toUpperCase()),
-        Expanded(
-          child: Container(),
-          flex: 1,
-        ),
-        _integerPickerScreenCount(pageState),
-//        _textFieldScreenCount(),
-        Expanded(
-          child: Container(),
-          flex: 2,
+        Column(
+          children: <Widget>[
+            Expanded(
+              child: Container(),
+              flex: 1,
+            ),
+            _integerPickerScreenCount(pageState),
+            Expanded(
+              child: Container(),
+              flex: 1,
+            ),
+          ],
         ),
       ],
     ),

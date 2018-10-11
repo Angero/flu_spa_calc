@@ -4,28 +4,42 @@ import 'package:flutter/material.dart';
 Widget tabSo(dynamic pageState) {
   return Padding(
     padding: const EdgeInsets.all(16.0),
-    child: Column(
+    child: Stack(
+      alignment: AlignmentDirectional.topStart,
       children: <Widget>[
-        SizedBox(
-          height: 20.0,
+        Center(
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: 10.0,
+              ),
+              Text(
+                'Ориентация экрана'.toUpperCase(),
+                style: TextStyle(color: Colors.amber),
+              ),
+            ],
+          ),
         ),
-        Text('Ориентация экрана'.toUpperCase()),
-        Expanded(
-          child: Container(),
-          flex: 1,
-        ),
-        Text('Смартфон'.toUpperCase()),
-        _checkboxSoPhonePort(pageState),
-        _checkboxSoPhoneLand(pageState),
-        SizedBox(
-          height: 40.0,
-        ),
-        Text('Планшет'.toUpperCase()),
-        _checkboxSoTabletPort(pageState),
-        _checkboxSoTabletLand(pageState),
-        Expanded(
-          child: Container(),
-          flex: 2,
+        Column(
+          children: <Widget>[
+            Expanded(
+              child: Container(),
+              flex: 1,
+            ),
+            Text('Смартфон'.toUpperCase()),
+            _checkboxSoPhonePort(pageState),
+            _checkboxSoPhoneLand(pageState),
+            SizedBox(
+              height: 40.0,
+            ),
+            Text('Планшет'.toUpperCase()),
+            _checkboxSoTabletPort(pageState),
+            _checkboxSoTabletLand(pageState),
+            Expanded(
+              child: Container(),
+              flex: 1,
+            ),
+          ],
         ),
       ],
     ),

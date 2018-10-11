@@ -5,24 +5,23 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 Widget tabAa(dynamic pageState) {
   return Padding(
     padding: const EdgeInsets.all(16.0),
-    child: Column(
+    child: ListView(
       children: <Widget>[
         SizedBox(
-          height: 20.0,
+          height: 10.0,
         ),
-        Text('Авторизация'.toUpperCase()),
-        Expanded(
-          child: Container(),
-          flex: 1,
+        Text('Авторизация'.toUpperCase(),
+            style: TextStyle(color: Colors.amber), textAlign: TextAlign.center),
+        SizedBox(
+          height: 20.0,
         ),
         _checkboxAaEmail(pageState),
         _checkboxAaPhone(pageState),
         _checkboxAaGoogle(pageState),
         _checkboxAaFacebook(pageState),
         _checkboxAaInstagram(pageState),
-        Expanded(
-          child: Container(),
-          flex: 2,
+        SizedBox(
+          height: 40.0,
         ),
       ],
     ),
@@ -51,10 +50,10 @@ Widget _checkboxAaPhone(dynamic pageState) {
     value: calc.Costs.aaPhone.used,
     onChanged: calc.CostsFunc.existAnyOperationSystem()
         ? (bool value) {
-      pageState.setState(() {
-        calc.Costs.aaPhone.used = value;
-      });
-    }
+            pageState.setState(() {
+              calc.Costs.aaPhone.used = value;
+            });
+          }
         : null,
     controlAffinity: ListTileControlAffinity.leading,
     secondary: Icon(Icons.phone),
@@ -67,10 +66,10 @@ Widget _checkboxAaGoogle(dynamic pageState) {
     value: calc.Costs.aaGoogle.used,
     onChanged: calc.CostsFunc.existAnyOperationSystem()
         ? (bool value) {
-      pageState.setState(() {
-        calc.Costs.aaGoogle.used = value;
-      });
-    }
+            pageState.setState(() {
+              calc.Costs.aaGoogle.used = value;
+            });
+          }
         : null,
     controlAffinity: ListTileControlAffinity.leading,
     secondary: Icon(FontAwesomeIcons.google),
@@ -83,10 +82,10 @@ Widget _checkboxAaFacebook(dynamic pageState) {
     value: calc.Costs.aaFacebook.used,
     onChanged: calc.CostsFunc.existAnyOperationSystem()
         ? (bool value) {
-      pageState.setState(() {
-        calc.Costs.aaFacebook.used = value;
-      });
-    }
+            pageState.setState(() {
+              calc.Costs.aaFacebook.used = value;
+            });
+          }
         : null,
     controlAffinity: ListTileControlAffinity.leading,
     secondary: Icon(FontAwesomeIcons.facebook),
@@ -99,10 +98,10 @@ Widget _checkboxAaInstagram(dynamic pageState) {
     value: calc.Costs.aaInstagram.used,
     onChanged: calc.CostsFunc.existAnyOperationSystem()
         ? (bool value) {
-      pageState.setState(() {
-        calc.Costs.aaInstagram.used = value;
-      });
-    }
+            pageState.setState(() {
+              calc.Costs.aaInstagram.used = value;
+            });
+          }
         : null,
     controlAffinity: ListTileControlAffinity.leading,
     secondary: Icon(FontAwesomeIcons.instagram),
