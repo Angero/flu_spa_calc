@@ -1,11 +1,11 @@
 import 'package:flu_estimate/calculation/calculation.dart' as calc;
 import 'package:flutter/material.dart';
-import 'package:share/share.dart';
+
 
 dynamic _pageState;
 calc.CalcResult _currentResult;
 
-Widget tabRs(dynamic pageState) {
+Widget tabRs(dynamic pageState, BuildContext context) {
   _pageState = pageState;
 
   return Padding(
@@ -41,7 +41,7 @@ Widget tabRs(dynamic pageState) {
                 child: Container(),
                 flex: 1,
               ),
-              _controlResult(),
+              _controlResult(context),
               SizedBox(
                 height: 30.0,
               ),
@@ -104,7 +104,7 @@ Widget _tableResult() {
   );
 }
 
-Widget _controlResult() {
+Widget _controlResult(BuildContext context) {
   if (_currentResult == null) {
     return Container(
       height: 0.0,
@@ -130,7 +130,7 @@ Widget _controlResult() {
       SizedBox(
         width: 10.0,
       ),
-      _outlineButtonSendEmail(),
+      _outlineButtonSendEmail(context),
       Expanded(
         child: Container(),
         flex: 1,
@@ -152,14 +152,14 @@ Widget _outlineButtonClear() {
   );
 }
 
-Widget _outlineButtonSendEmail() {
+Widget _outlineButtonSendEmail(BuildContext context) {
   return OutlineButton(
     child: new Text('Отправить'.toUpperCase()),
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100.0)),
     textColor: Colors.amber,
     onPressed: () {
       _pageState.setState(() {
-        Share.share(calc.CostsPost.write());
+        Navigator.of(context).pushNamed('/confirm');
       });
     },
   );
@@ -187,3 +187,4 @@ Widget _textValue(String s) {
     ),
   );
 }
+

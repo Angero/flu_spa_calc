@@ -85,7 +85,7 @@ class _CalcTabsPageState extends State<CalcTabsPage> {
             tabSv(this),
             tabFn(this),
             tabPb(this),
-            tabRs(this),
+            tabRs(this, context),
           ]),
         ));
   }

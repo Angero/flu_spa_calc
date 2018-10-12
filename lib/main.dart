@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
+import 'confirm.dart';
 import 'calc/calc_pages.dart';
 
 void main() {
@@ -18,9 +18,9 @@ class MyApp extends StatelessWidget {
       title: 'SPA Calculator',
       theme: _themeData,
       home: CalcPagesPage(),
-//      routes: <String, WidgetBuilder>{
-//        '/home': (BuildContext context) => new CalcTabsPage(),
-//      },
+      routes: <String, WidgetBuilder>{
+        '/confirm': (BuildContext context) => new ConfirmPage(),
+      },
 //      home: new CalcTabsPage(),
     );
   }

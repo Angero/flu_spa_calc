@@ -13,7 +13,7 @@ import 'calc_rs.dart';
 import 'calc_sc.dart';
 import 'calc_so.dart';
 import 'calc_sv.dart';
-import 'dialog.dart' as dlg;
+import '../dialog.dart' as dlg;
 
 class CalcPagesPage extends StatefulWidget {
   @override
@@ -65,7 +65,7 @@ class _CalcPagesPageState extends State<CalcPagesPage> {
               tabSv(this),
               tabFn(this),
               tabPb(this),
-              tabRs(this),
+              tabRs(this, context),
             ],
             onPageChanged: (int i) {
               setState(() {
@@ -103,15 +103,15 @@ String infoContent() {
 
   String s = '';
 
-  s += 'Разработка приложения:$n';
+  s += 'Автор:$n'.toUpperCase();
   s += 'Андрей Рожков$n';
+  s += '$n';
+  s += 'Разработка мобильных приложений для смартфонов Apple и Android.$n';
   s += '$n';
   s += 'Контакты:$n'.toUpperCase();
   s += 'E-mail: ra.perm.russia@gmail.com$n';
-  s += 'Телефон:$n +7 (922) 322-22-44$n';
-  s += 'Viber:$n +7 (922) 322-22-44$n';
-  s += 'Telegram:$n +7 (922) 322-22-44$n';
-  s += 'WhatsApp:$n +7 (922) 322-22-44$n';
+  s += 'Телефон, Viber, Telegram, WhatsApp$n';
+  s += '+7 (922) 322-22-44$n';
   s += 'Skype: raperm$n';
 
   return s;
