@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'confirm.dart';
 import 'calc/calc_pages.dart';
+import 'start.dart';
 
 void main() {
   SystemChrome
@@ -17,11 +18,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'SPA Calculator',
       theme: _themeData,
-      home: CalcPagesPage(),
       routes: <String, WidgetBuilder>{
+        '/calc': (BuildContext context) => new CalcPagesPage(),
         '/confirm': (BuildContext context) => new ConfirmPage(),
       },
-//      home: new CalcTabsPage(),
+      home: StartPage(),
     );
   }
 }

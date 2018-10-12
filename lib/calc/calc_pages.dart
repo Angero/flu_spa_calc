@@ -21,7 +21,7 @@ class CalcPagesPage extends StatefulWidget {
 }
 
 class _CalcPagesPageState extends State<CalcPagesPage> {
-  int currentIndexPage = 9;
+  int currentIndexPage = 0;
   PageController controller;
 
   @override
