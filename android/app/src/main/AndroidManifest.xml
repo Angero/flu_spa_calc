@@ -14,7 +14,7 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="flu_spa_calc"
+        android:label="SPA calculator"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

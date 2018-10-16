@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:flu_estimate/calculation/calculation.dart' as calc;
 import 'package:flutter/material.dart';
-import 'package:share/share.dart';
 import 'package:flutter/services.dart';
+import 'package:share/share.dart';
 
 import 'dialog.dart' as dlg;
+import 'storage.dart';
 
 class ConfirmPage extends StatefulWidget {
   @override
@@ -15,7 +18,6 @@ class _ConfirmPageState extends State<ConfirmPage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text('Результат'),
@@ -43,10 +45,12 @@ class _ConfirmPageState extends State<ConfirmPage> {
       inputFormatters: [
         WhitelistingTextInputFormatter(RegExp('[0-9]')),
       ],
+      autofocus: true,
       decoration: new InputDecoration(
         labelText: 'Промо-код',
         hintText: 'Введите промо-код',
       ),
+      obscureText: true,
       onChanged: (String value) {
         setState(() {
           _promoCode = value;
@@ -66,13 +70,25 @@ class _ConfirmPageState extends State<ConfirmPage> {
     );
   }
 
-  _sendResult() {
+  _sendResult() async {
     if (_promoCode == '120461') {
-      Navigator.of(context).pop();
-      Share.share(calc.CostsPost.write());
+      String html = calc.CostsHtml.write();
+      // TODO: Могу сохранять файл но пока нет средств им делится
+      File file = await CalcStorage().writeCalc(html); 
+      print(file.path);
+      try {
+        await Share.share(html);
+        setState(() {
+          _promoCode = '';
+        });
+      } catch (e) {
+        print('RA: ${e.toString()}');
+        dlg.Dialog.showDialogWindow(context, 'Не удалось отправить.');
+      }
     } else {
       dlg.Dialog.showDialogWindow(context,
           'Для отправки результатов расчета стоимости разработки мобильного приложения, необходимо ввести корректный промо-код.');
     }
   }
+
 }
