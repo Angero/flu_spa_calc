@@ -1,5 +1,6 @@
 import 'package:flu_estimate/calculation/calculation.dart' as calc;
 import 'package:flutter/material.dart';
+import 'package:share/share.dart';
 
 
 dynamic _pageState;
@@ -159,7 +160,8 @@ Widget _outlineButtonSendEmail(BuildContext context) {
     textColor: Colors.amber,
     onPressed: () {
       _pageState.setState(() {
-        Navigator.of(context).pushNamed('/confirm');
+        Share.share(calc.CostsPost.write()); // TODO: Делимся текстом сразу
+//        Navigator.of(context).pushNamed('/confirm');  // TODO: Переходим на подтверждение создания файла HTML
       });
     },
   );
